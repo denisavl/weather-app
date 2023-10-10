@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+  </head>
+  <body>
+    <nav class="top-nav">
+      <div class="logo">
+        <img id="logo-img" src="./images/logo-name.png" alt="WeatherWise" />
+        <span class="logo-name">WeatherWise</span>
+      </div>
+      <form class="search-bar">
+        <input type="search" placeholder="Search..." id="search"/>
+        <button type="submit">Search</button>
+      </form>
+      <div class="buttons">
+        <button class="celsius fahrenheit"><span>C°</span>/ <span></span>F°</button>
+      </div>
+    </nav>
+    <section class="main-page">
+      <div class="left-side">
+        
+        <div class="center">
+            <div class="city-name">Bucharest, <span class="country">Romania</span></div>
+            <div class="date">Friday 20 December 2020 | 20:07</div>
+            <section class="section-weather">
+                <div class="degree">
+                    <img src="./images/weather.png" alt="">
+                    <span class="temperature">26°</span>
+                </div>
+                <div class="weather-description">Sunny</div>
+                <div class="feels-like">Feels like <span class="feels-like-degree">25°</span></div>
+            </section>
+        </div>
+        <div class="week-temp">
+            <div class="daily-cont">
+                <div class="day">Today</div>
+                <div class="daily-temp">20°</div>
+                <div class="daily-temp-description">Sunny</div>
+            </div>
+            <div class="daily-cont">
+                <div class="day">Tue</div>
+                <div class="daily-temp">20°</div>
+                <div class="daily-temp-description">Sunny</div>
+            </div>
+            <div class="daily-cont">
+                <div class="day">Wed</div>
+                <div class="daily-temp">20°</div>
+                <div class="daily-temp-description">Sunny</div>
+            </div>
+            <div class="daily-cont">
+                <div class="day">Thu</div>
+                <div class="daily-temp">20°</div>
+                <div class="daily-temp-description">Sunny</div>
+            </div>
+            <div class="daily-cont">
+                <div class="day">Fri</div>
+                <div class="daily-temp">20°</div>
+                <div class="daily-temp-description">Sunny</div>
+            </div>
+            <div class="daily-cont">
+                <div class="day">Sat</div>
+                <div class="daily-temp">20°</div>
+                <div class="daily-temp-description">Sunny</div>
+            </div>
+        </div>
+      </div>
+      <div class="right-side">
+        <div class="details-container">
+          <div class="details">
+              <p class="details-title">Wind</p>
+              <p class="details-value"><span class="data-wind">6</span> km/h</p>
+          </div>
+          <div class="details">
+            <p class="details-title">Humidity</p>
+            <p class="details-value"><span class="data-humidity">10</span> %</p>
+          </div>
+          <div class="details">
+            <p class="details-title">UV</p>
+            <p class="details-value"><span class="data-UV">2</span></p>
+          </div>
+          <div class="details">
+            <p class="details-title">Pressure</p>
+            <p class="details-value"><span class="data-pressure">1000</span> mp</p>
+          </div>
+          <div class="details">
+            <p class="details-title">Chance of rain</p>
+            <p class="details-value"><span class="data-wind">60</span> %</p>
+          </div>
+          <div class="details">
+            <p class="details-title">Visibility</p>
+            <p class="details-value"><span class="data-wind">10</span> km</p>
+          </div>
+          <div class="details">
+            <p class="details-title">Sunrise</p>
+            <p class="details-value"><span class="data-wind">07:55</span></p>
+          </div>
+          <div class="details">
+            <p class="details-title">Sunset</p>
+            <p class="details-value"><span class="data-wind">18:58</span></p>
+          </div>
+          <div class="details">
+            <p class="details-title">Clouds</p>
+            <p class="details-value"><span class="data-wind">0</span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script src="main.js"></script>
+  </body>
+</html>
