@@ -102,7 +102,7 @@ input[type="search"]:focus {
   font-weight: bold; 
 }
 
-.city-name{
+.location-name{
   font-size: 36px;
   text-align: center;
   letter-spacing: 1px;
