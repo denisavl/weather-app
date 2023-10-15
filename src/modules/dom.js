@@ -94,7 +94,7 @@ export const populateDom = (() => {
 
   function changeWeatherIcon(data) {
     const image = document.querySelector('#weather-icon');
-    const basePath = '../../dist/images/'; 
+    const basePath = '/images/'; 
   
     switch (data.currentConditions.icon) {
       case 'clear-day':
