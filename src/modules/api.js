@@ -7,7 +7,6 @@ const api = (function () {
     const response = await fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${cityValue}/?key=${API_KEY}&lang=en&unitGroup=${units}&iconSet=icons2 `,
       { mode: 'cors' },)
     const location = await response.json();
-    console.log(location);
     return location;
   }
 
