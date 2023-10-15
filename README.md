@@ -1,7 +1,7 @@
 # weather-app
 A simple and intuitive web application that provides real-time weather information for locations around the world. This app is built using HTML, CSS, and JavaScript
 
-#Features
+# Features
 - Current Weather: Get up-to-the-minute weather information for any location, including temperature, conditions, and more.
 - 5-Day Forecast: Plan your week with a detailed 5-day weather forecast, including temperature highs and lows.
 - Unit Conversion: Easily toggle between Celsius and Fahrenheit to view temperature in your preferred units.
