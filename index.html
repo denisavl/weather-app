@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather App</title>
+    <link rel="icon" href="./images/icon.png" type="icon">
   </head>
   <body>
     <nav class="top-nav">
@@ -11,23 +12,27 @@
         <img id="logo-img" src="./images/logo-name.png" alt="WeatherWise" />
         <span class="logo-name">WeatherWise</span>
       </div>
-      <form class="search-bar" method="get">
-        <input type="search" placeholder="Search..." id="search"/>
-        <button type="submit" class="submit-btn">Search</button>
-      </form>
+      <div class="input-search">
+        <form class="search-bar" method="get">
+          <input type="search" placeholder="Search..." id="search"/>
+          <button type="submit" class="submit-btn">Search</button>
+        </form>
+        <div class="error-message">City not found. Please try again.</div>
+      </div>
+      
       <div class="buttons">
-        <button class="celsius fahrenheit"><span>C°</span>/ <span></span>F°</button>
+        <button class="C-F"><span>C°</span>/ <span></span>F°</button>
       </div>
     </nav>
     <section class="main-page">
       <div class="left-side">
         
         <div class="center">
-            <div class="location-name"><span class="city-name"></span><span class="country"></span></div>
+            <div class="location-name"><span class="city-name"></span></div>
             <div class="date"></div>
             <section class="section-weather">
                 <div class="degree">
-                    <img src="./images/weather.png" alt="">
+                    <img id="weather-icon" width="120px" height="120px">
                     <span class="temperature"></span>
                 </div>
                 <div class="weather-description"></div>
@@ -36,34 +41,34 @@
         </div>
         <div class="week-temp">
             <div class="daily-cont">
-                <div class="day">Today</div>
-                <div class="daily-temp">20°</div>
-                <div class="daily-temp-description">Sunny</div>
+                <div class="day today">Today</div>
+                <div class="daily-temp today-temp"></div>
+                <div class="daily-temp-description today-descrip"></div>
             </div>
             <div class="daily-cont">
-                <div class="day">Tue</div>
-                <div class="daily-temp">20°</div>
-                <div class="daily-temp-description">Sunny</div>
+                <div class="day"></div>
+                <div class="daily-temp"></div>
+                <div class="daily-temp-description"></div>
             </div>
             <div class="daily-cont">
-                <div class="day">Wed</div>
-                <div class="daily-temp">20°</div>
-                <div class="daily-temp-description">Sunny</div>
+                <div class="day"></div>
+                <div class="daily-temp"></div>
+                <div class="daily-temp-description"></div>
             </div>
             <div class="daily-cont">
-                <div class="day">Thu</div>
-                <div class="daily-temp">20°</div>
-                <div class="daily-temp-description">Sunny</div>
+                <div class="day"></div>
+                <div class="daily-temp"></div>
+                <div class="daily-temp-description"></div>
             </div>
             <div class="daily-cont">
-                <div class="day">Fri</div>
-                <div class="daily-temp">20°</div>
-                <div class="daily-temp-description">Sunny</div>
+                <div class="day"></div>
+                <div class="daily-temp"></div>
+                <div class="daily-temp-description"></div>
             </div>
             <div class="daily-cont">
-                <div class="day">Sat</div>
-                <div class="daily-temp">20°</div>
-                <div class="daily-temp-description">Sunny</div>
+                <div class="day"></div>
+                <div class="daily-temp"></div>
+                <div class="daily-temp-description"></div>
             </div>
         </div>
       </div>
@@ -71,39 +76,39 @@
         <div class="details-container">
           <div class="details">
               <p class="details-title">Wind</p>
-              <p class="details-value"><span class="data-wind">6</span> km/h</p>
+              <p class="details-value"><span class="data-wind"></span> km/h</p>
           </div>
           <div class="details">
             <p class="details-title">Humidity</p>
-            <p class="details-value"><span class="data-humidity">10</span> %</p>
+            <p class="details-value"><span class="data-humidity"></span> %</p>
           </div>
           <div class="details">
             <p class="details-title">UV</p>
-            <p class="details-value"><span class="data-UV">2</span></p>
+            <p class="details-value"><span class="data-UV"></span></p>
           </div>
           <div class="details">
             <p class="details-title">Pressure</p>
-            <p class="details-value"><span class="data-pressure">1000</span> mp</p>
+            <p class="details-value"><span class="data-pressure"></span> mp</p>
           </div>
           <div class="details">
             <p class="details-title">Chance of rain</p>
-            <p class="details-value"><span class="data-wind">60</span> %</p>
+            <p class="details-value"><span class="data-rain"></span> %</p>
           </div>
           <div class="details">
             <p class="details-title">Precipitation</p>
-            <p class="details-value"><span class="data-wind">0</span> mm</p>
-          </div>
-          <div class="details">
-            <p class="details-title">Sunrise</p>
-            <p class="details-value"><span class="data-wind">07:55</span></p>
-          </div>
-          <div class="details">
-            <p class="details-title">Sunset</p>
-            <p class="details-value"><span class="data-wind">18:58</span></p>
+            <p class="details-value"><span class="data-precip"></span> mm</p>
           </div>
           <div class="details">
             <p class="details-title">Clouds</p>
-            <p class="details-value"><span class="data-wind">0</span></p>
+            <p class="details-value"><span class="data-clouds"></span></p>
+          </div>
+          <div class="details">
+            <p class="details-title">Sunrise</p>
+            <p class="details-value"><span class="data-sunrise"></span></p>
+          </div>
+          <div class="details">
+            <p class="details-title">Sunset</p>
+            <p class="details-value"><span class="data-sunset"></span></p>
           </div>
         </div>
       </div>
