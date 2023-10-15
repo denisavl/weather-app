@@ -94,74 +94,72 @@ export const populateDom = (() => {
 
   function changeWeatherIcon(data) {
     const image = document.querySelector('#weather-icon');
-    const basePath = '/images/';
-  
     switch (data.currentConditions.icon) {
       case 'clear-day':
-        image.src = basePath + 'clear-day.svg';
+        image.src = './images/clear-day.svg';
         break;
       case 'clear-night':
-        image.src = basePath + 'clear-night.png';
+        image.src = './images/clear-night.png';
         break;
       case 'cloudy':
-        image.src = basePath + 'cloudy.png';
+        image.src = './images/cloudy.png';
         break;
       case 'fog':
-        image.src = basePath + 'fog.svg';
+        image.src = './images/fog.svg';
         break;
       case 'hail':
-        image.src = basePath + 'fog.png';
+        image.src = './images/fog.png';
         break;
       case 'partly-cloudy-day':
-        image.src = basePath + 'partly-cloudy-day.png';
+        image.src = './images/partly-cloudy-day.png';
         break;
       case 'partly-cloudy-night':
-        image.src = basePath + 'partly-cloudy-day.png';
+        image.src = './images/partly-cloudy-day.png';
         break;
       case 'rain-snow-showers-day':
-        image.src = basePath + 'rain-snow-showers-day.svg';
+        image.src = './images/rain-snow-showers-day.svg';
         break;
       case 'rain-snow-showers-night':
-        image.src = basePath + 'rain-snow-showers-night.svg';
+        image.src = '.images/rain-snow-showers-night.svg';
         break;
       case 'rain-snow':
-        image.src = basePath + 'rain-snow.png';
+        image.src = './images/rain-snow.png';
         break;
       case 'rain':
-        image.src = basePath + 'rain.png';
+        image.src = './images/rain.png';
         break;
       case 'showers-day':
-        image.src = basePath + 'showers-day.png';
+        image.src = './images/showers-day.png';
         break;
       case 'showers-night':
-        image.src = basePath + 'showers-night.svg';
+        image.src = './images/showers-night.svg';
         break;
       case 'sleet':
-        image.src = basePath + 'sleet.png';
+        image.src = './images/sleet.png';
         break;
       case 'snow-showers-day':
-        image.src = basePath + 'snow-showers-day.svg';
+        image.src = './images/snow-showers-day.svg';
         break;
       case 'snow-showers-night':
-        image.src = basePath + 'snow-showers-night.svg';
+        image.src = './images/snow-showers-night.svg';
         break;
       case 'snow':
-        image.src = basePath + 'snow.png';
+        image.src = './images/snow.png';
         break;
       case 'thunder-rain':
-        image.src = basePath + 'thunder-rain.png';
+        image.src = './images/thunder-rain.png';
         break;
       case 'thunder-showers-day':
-        image.src = basePath + 'thunder-showers-day.svg';
+        image.src = './images/thunder-showers-day.svg';
         break;
       case 'thunder-showers-night':
-        image.src = basePath + 'thunder-showers-night.svg';
+        image.src = './images/thunder-showers-night.svg';
         break;
       case 'thunder':
-        image.src = basePath + 'thunder.png';
+        image.src = './images/thunder.png';
         break;
       case 'wind':
-        image.src = basePath + 'wind.png';
+        image.src = './images/wind.png';
         break;
     }
   }
