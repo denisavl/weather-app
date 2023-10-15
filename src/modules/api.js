@@ -10,15 +10,16 @@ const api = (function () {
     return location;
   }
 
-  async function forecastData(data) {
-    if (!data) {
-      data = 'bucharest';
-    }
-    const response = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=c6aa9b9a03f6449b82b131854232809&q=${data}`,
-      { mode: 'cors' },)
-    const forecast = await response.json();
-    return forecast;
+async function forecastData(data) {
+  if (!data) {
+    data = 'bucharest';
   }
+  const response = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=c6aa9b9a03f6449b82b131854232809&q=${data}`,
+    { mode: 'cors' }
+  );
+  const forecast = await response.json();
+  return forecast;
+}
 
   function weatherDetails(data) {
     const options = {
