@@ -16,7 +16,7 @@ html {
 .top-nav {
   display: flex;
   justify-content: space-between;
-  padding: 35px;
+  padding: 30px;
   align-items: center;
 }
 
@@ -189,4 +189,11 @@ input[type="search"]:focus {
   font-size: 20px;
   color: #e6e5e5;
   text-align: center;
+}
+
+.error-message{
+  text-align: center;
+  color: red;
+  padding: 5px;
+  display: none;
 }

@@ -1,30 +1,15 @@
 export const populateDom = (() => {
-  function formatDate(date) {
-    const options = {
-      weekday: "long",
-      day: "numeric",
-      month: "long",
-      year: "numeric",
-    };
 
-    const formattedDate = new Date(date).toLocaleDateString("en-US", options);
-
-    const hour = date.getHours().toString().padStart(2, "0");
-    const minute = date.getMinutes().toString().padStart(2, "0");
-
-    return `${formattedDate} | ${hour}:${minute}`;
+  function weekDay(day) {
+    const sepDay = day.split(' ');
+    const formattedDay = sepDay[0];
+    return formattedDay;
   }
-  function createDate() {
+
+  function createDate(formattedDateTime) {
     const dateDisplay = document.querySelector(".date");
-    const currentDate = new Date();
-    const formattedDate = formatDate(currentDate);
-    dateDisplay.textContent = formattedDate;
+    dateDisplay.textContent = formattedDateTime;
   }
-  createDate();
-
-  function capitalizeFirstLetter(str) {
-    return str.charAt(0).toUpperCase() + str.slice(1);
-}
 
   function searchCity() {
     const searchCity = document.querySelector("#search");
@@ -34,29 +19,159 @@ export const populateDom = (() => {
 
   function extractLocation(locationData) {
     const cityName = document.querySelector(".city-name");
-    const countryName = document.querySelector(".country");
-    cityName.textContent = locationData.name + ", ";
-    countryName.textContent = locationData.sys.country;
+    cityName.textContent = locationData.resolvedAddress
   }
 
-  function displayTemp(tempData) {
+  function displayTemp(tempData, units) {
     const temp = document.querySelector(".temperature");
-    temp.textContent = Math.round(tempData.main.temp) + "°C";
-
     const feelsLike = document.querySelector('.feels-like-degree');
-    feelsLike.textContent = Math.round(tempData.main.feels_like) + "°C";
+    const today = document.querySelector('.today-temp');
+    if (units === 'metric') {
+      temp.textContent = Math.round(tempData.currentConditions.temp) + " °C";
+      feelsLike.textContent = Math.round(tempData.currentConditions.feelslike) + " °C";
+      today.textContent = Math.round(tempData.currentConditions.temp) + " °C";
+    } else if (units === 'us') {
+      temp.textContent = Math.round(tempData.currentConditions.temp) + " °F";
+      feelsLike.textContent = Math.round(tempData.currentConditions.feelslike) + " °F";
+      today.textContent = Math.round(tempData.currentConditions.temp) + " °F";
+    }
   }
 
-  function weatherDescription(descriptionData){
+  function weatherDescription(descriptionData) {
     const description = document.querySelector('.weather-description');
-    const inputDescription = descriptionData.weather[0].description;
-    description.textContent = capitalizeFirstLetter(inputDescription);
+    const inputDescription = descriptionData.currentConditions.conditions;
+    description.textContent = inputDescription;
+
+    const todayDescrip = document.querySelector('.today-descrip');
+    todayDescrip.textContent = inputDescription;
+  }
+
+  function displayDetails(option) {
+    const wind = document.querySelector('.data-wind');
+    const humidity = document.querySelector('.data-humidity');
+    const UV = document.querySelector('.data-UV');
+    const pressure = document.querySelector('.data-pressure');
+    const chanceOfRain = document.querySelector('.data-rain');
+    const precip = document.querySelector('.data-precip');
+    const sunrise = document.querySelector('.data-sunrise');
+    const sunset = document.querySelector('.data-sunset');
+    const clouds = document.querySelector('.data-clouds');
+
+    wind.textContent = Math.round(option.wind);
+    humidity.textContent = option.humidity;
+    UV.textContent = option.UV;
+    pressure.textContent = option.pressure;
+    chanceOfRain.textContent = option.rain;
+    precip.textContent = option.precip;
+    sunrise.textContent = option.sunrise;
+    sunset.textContent = option.sunset;
+    clouds.textContent = option.clouds;
+  }
+
+  function display5DaysWeather(data, units) {
+    const days = document.querySelectorAll('.day');
+    const dailyTemp = document.querySelectorAll('.daily-temp');
+    const dailyDescription = document.querySelectorAll('.daily-temp-description');
+    const today = new Date();
+    const tomorrow = new Date(today);
+    if (units === 'metric') {
+      for (let i = 1; i < 6; i++) {
+        tomorrow.setDate(today.getDate() + i);
+        days[i].textContent = weekDay(tomorrow.toDateString());
+        dailyTemp[i].textContent = Math.round(data.days[i].temp) + " °C";
+        dailyDescription[i].textContent = data.days[i].conditions;
+      }
+    }
+    else if (units === 'us') {
+      for (let i = 1; i < 6; i++) {
+        tomorrow.setDate(today.getDate() + i);
+        days[i].textContent = weekDay(tomorrow.toDateString());
+        dailyTemp[i].textContent = Math.round(data.days[i].temp) + " °F";
+        dailyDescription[i].textContent = data.days[i].conditions;
+      }
+    }
+  }
+
+  function changeWeatherIcon(data) {
+    const image = document.querySelector('#weather-icon');
+    switch (data.currentConditions.icon) {
+      case 'clear-day':
+        image.src = '../dist/images/clear-day.svg';
+        break;
+      case 'clear-night':
+        image.src = '../dist/images/clear-night.png';
+        break;
+      case 'cloudy':
+        image.src = '../dist/images/cloudy.png';
+        break;
+      case 'fog':
+        image.src = '../dist/images/fog.svg';
+        break;
+      case 'hail':
+        image.src = '../dist/images/fog.png';
+        break;
+      case 'partly-cloudy-day':
+        image.src = '../dist/images/partly-cloudy-day.png';
+        break;
+      case 'partly-cloudy-night':
+        image.src = '../dist/images/partly-cloudy-day.png';
+        break;
+      case 'rain-snow-showers-day':
+        image.src = '../dist/images/rain-snow-showers-day.svg';
+        break;
+      case 'rain-snow-showers-night':
+        image.src = '../dist/images/rain-snow-showers-night.svg';
+        break;
+      case 'rain-snow':
+        image.src = '../dist/images/rain-snow.png';
+        break;
+      case 'rain':
+        image.src = '../dist/images/rain.png';
+        break;
+      case 'showers-day':
+        image.src = '../dist/images/showers-day.png';
+        break;
+      case 'showers-night':
+        image.src = '../dist/images/showers-night.svg';
+        break;
+      case 'sleet':
+        image.src = '../dist/images/sleet.png';
+        break;
+      case 'snow-showers-day':
+        image.src = '../dist/images/snow-showers-day.svg';
+        break;
+      case 'snow-showers-night':
+        image.src = '../dist/images/snow-showers-night.svg';
+        break;
+      case 'snow':
+        image.src = '../dist/images/snow.png';
+        break;
+      case 'thunder-rain':
+        image.src = '../dist/images/thunder-rain.png';
+        break;
+      case 'thunder-showers-day':
+        image.src = '../dist/images/thunder-showers-day.svg';
+        break;
+      case 'thunder-showers-night':
+        image.src = '../dist/images/thunder-showers-night.svg';
+        break;
+      case 'thunder':
+        image.src = '../dist/images/thunder.png';
+        break;
+      case 'wind':
+        image.src = '../dist/images/wind.png';
+        break;
+    }
   }
 
   return {
+    createDate,
     extractLocation,
     searchCity,
     displayTemp,
-    weatherDescription
+    weatherDescription,
+    displayDetails,
+    display5DaysWeather,
+    changeWeatherIcon
   };
 })();
