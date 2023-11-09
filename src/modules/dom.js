@@ -93,7 +93,7 @@ export const populateDom = (() => {
   }
 
   function changeWeatherIcon(data) {
-    const image = document.querySelector('#weather-icon');  
+    const image = document.querySelector('#weather-icon'); 
     switch (data.currentConditions.icon) {
       case 'clear-day':
         image.src = './images/clear-day.svg';
